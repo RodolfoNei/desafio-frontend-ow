@@ -3,7 +3,7 @@
 ## (Desenvolvido por Rodolfo Nei)
 
 ### Ferramentas utilizadas:
-- Node e ExpressJS;
+- Node e ExpressJS (criado a partir do Express Aplication Generator);
 - VueJS para IU;
 - CSS puro e Flexbox para layout
 
