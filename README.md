@@ -4,6 +4,7 @@
 
 ### Ferramentas utilizadas:
 - Node e ExpressJS (criado a partir do Express Aplication Generator);
+- Templates .ejs
 - VueJS para IU;
 - CSS puro e Flexbox para layout
 
