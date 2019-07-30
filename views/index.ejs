@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- Meu CSS -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <!-- Wrapper do Corpo com um Max Width -->
+    <div id="body-wrapper">
+      <!-- Cabeçalho do App -->
+      <header>
+        <h1>myTodos</h1>
+        <p>(Desenvolvido por Rodolfo Nei)</p>
+      </header>
+      <hr>
+      <!-- Wrapper do app -->
+      <div id="app">
+        <!-- Seção para cadastro de item -->
+        <section id="userinput-section">
+          <!-- Título do item -->
+          <div>
+            <label for="titulo">Título:&nbsp;</label>
+            <input v-model="userInput.titulo" id="titulo" type="text">
+          </div>
+          <!-- Descrição do item -->
+          <div>
+            <label for="descricao">Descrição:&nbsp;</label>
+            <textarea v-model="userInput.descricao" id="descricao"></textarea>
+          </div>
+          <!-- Prioridade do item -->
+          <div>
+            <label for="prioridade">Prioridade:&nbsp;</label>
+            <select v-model="userInput.prioridade" id="prioridade">
+              <option value="Baixa">Baixa</option>
+              <option value="Média">Média</option>
+              <option value="Alta">Alta</option>
+            </select>
+          </div>
+          <!-- Botão que invoca a criação de um item -->
+          <div id="add-btn" v-on:click="addTodo">Adicionar</div>
+        </section><hr>
+        <!-- Seção contendo o display da lista completa de itens -->
+        <section>
+
+          <!-- Container da lista de itens -->
+          <ul id="todo-ul" v-if="todos">
+            <!-- Template de cada item -->
+            <li v-for="todo in todos" v-bind:key="todo.id">
+              <div>
+                <h3>{{ todo.titulo }}</h3>
+                <p>{{ todo.id }}</p>
+                <p>{{ todo.descricao }}</p>
+                <p>Prioridade: {{ todo.prioridade }}</p>
+                <select v-model="todo.status">
+                  <option value="">Em Aberto</option>
+                  <option value="concluido">Concluído</option>
+                </select>
+                <div v-on:click="removeTodo" class="todo-x-btn">X</div>
+              </div>
+            </li>
+
+          </ul>
+        </section>
+      </div>
+    </div>
+    <!-- VueJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- Meu Javascript -->
+    <script src="/javascripts/main.js"></script>
+  </body>
+</html>
